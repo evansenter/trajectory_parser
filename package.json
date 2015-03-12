@@ -1,7 +1,11 @@
 {
   "name": "trajectory_parser",
   "version": "1.0.0",
-  "description": "",
+  "description": "Computes the transition probability matrix for a trajectory file, for kinetic analysis",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evansenter/trajectory_parser"
+  },
   "main": "parse_trajectory.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,9 +15,10 @@
   "dependencies": {
     "debug": "^2.1.2",
     "underscore": "^1.8.2",
-    "yargs": "^3.5.3"
+    "yargs": "^3.5.4"
   },
   "devDependencies": {
+    "npm-check-updates": "^1.5.1",
     "prettyjson": "^1.1.0"
   }
 }

@@ -136,7 +136,7 @@ by_double_lines.on("readable", function() {
 });
 
 by_double_lines.on("end", function() {
-  if (options.v && !options.vv) {
+  if (options.v && !options.vv && by_double_lines.count >= 100000) {
     process.stdout.write("\n");
   }
   
