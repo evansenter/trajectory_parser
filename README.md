@@ -1,5 +1,7 @@
 # trajectory_parser
 
+[![npm version](https://badge.fury.io/js/trajectory_parser.svg)](http://badge.fury.io/js/trajectory_parser)
+
 ## Usage
 
     Usage: parse_trajectory.js [options]
