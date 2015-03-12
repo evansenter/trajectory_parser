@@ -1,6 +1,6 @@
 {
   "name": "trajectory_parser",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Computes the transition probability matrix for a trajectory file, for kinetic analysis",
   "repository": {
     "type": "git",
