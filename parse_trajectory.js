@@ -5,7 +5,7 @@ var debug           = _.tap(require("debug"), function(debug) { debug.enable("*"
 var ap              = require("prettyjson").render;
 var options         = require("yargs")
                         .usage("Usage: $0 [options]")
-                        .example("$0 -t 10000 -f trajectory.txt", "generate the transition matrix for trajectory.txt where basins of attraction take longer than 10,000 steps to leave")
+                        .example("$0 -t 10000 -f trajectory.txt -o transition_matrix.out", "generate the transition matrix for trajectory.txt where basins of attraction take longer than 10,000 steps to leave")
                         .options({
                           "v": {
                             alias: "verbose",
@@ -38,6 +38,7 @@ var options         = require("yargs")
                         })
                         .nargs("f", 1)
                         .nargs("t", 1)
+                        .nargs("o", 1)
                         .check(function(object, mapping) {
                           function pretty_warn(key, error) {
                             return "Error with " + _.first(mapping[key]) + " option: " + error;
@@ -63,7 +64,6 @@ var options         = require("yargs")
                         })
                         .help("h")
                         .alias("h", "help")
-                        .wrap(null)
                         .argv;
 
 if (options.very_verbose) {
@@ -193,13 +193,13 @@ by_double_lines.on("end", function() {
   heavy_notify(transition_table, true);
   notify("Transition matrix complete");
   
+  function int_key_sorter(object) {
+    return _.chain(object).keys().map(Number).sortBy(_.identity).value();
+  }
+  
   if (options.output) {
     notify("Writing output file");
     var output = fs.createWriteStream(options.output);
-  
-    function int_key_sorter(object) {
-      return _.chain(object).keys().map(Number).sortBy(_.identity).value();
-    }
   
     output.on("open", function(file) {
       _.each(int_key_sorter(transition_table), function(i) {

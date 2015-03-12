@@ -7,21 +7,26 @@
     Usage: parse_trajectory.js [options]
 
     Options:
-      -v, --verbose         Print verbose output                       [default: false]
-      --vv, --very_verbose  Print extremely verbose output             [default: false]
-      -f, --input           Load a trajectory file                     [required]
-      -o, --output          Output transition probability matrix file
-      -t, --threshold       Set a threshold for basins                 [required]
-      -h, --help            Show help                                
+      -v, --verbose         Print verbose output                    [default: false]
+      --vv, --very_verbose  Print extremely verbose output          [default: false]
+      -f, --input           Load a trajectory file                        [required]
+      -o, --output          Output transition probability matrix file               
+      -t, --threshold       Set a threshold for basins                    [required]
+      -h, --help            Show help                                               
 
     Examples:
-      parse_trajectory.js -t 10000 -f trajectory.txt    generate the transition matrix for trajectory.txt where basins of attraction take longer than 10,000 steps to leave
+      parse_trajectory.js -t 10000 -f             generate the transition matrix
+      trajectory.txt -o                           for trajectory.txt where basins
+      transition_matrix.out                       of attraction take longer than
+                                                  10,000 steps to leave             
+
+    Missing required arguments: f, t
 
 ## Example
 
 Simple use case:
 
-    node parse_trajectory.js -v -f ../outLcollosomaFlux.txt -t 100 -o
+    node parse_trajectory.js -v -f ../outLcollosomaFlux.txt -t 100
     
 Returns something of the form:
     
